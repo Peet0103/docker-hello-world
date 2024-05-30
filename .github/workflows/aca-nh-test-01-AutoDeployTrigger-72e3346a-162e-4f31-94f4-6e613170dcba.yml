@@ -34,7 +34,6 @@ jobs:
         with:
           appSourcePath: ${{ github.workspace }} 
           location: westeu
-          acrname: nicecontainerregprod
           containerAppEnvironment: env-nh-prod-01
           containerAppName: aca-nh-prod-01
           resourceGroup: rg-nh-prod-01
