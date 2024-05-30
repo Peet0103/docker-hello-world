@@ -33,9 +33,8 @@ jobs:
         uses: azure/container-apps-deploy-action@v2
         with:
           appSourcePath: ${{ github.workspace }} 
-          registryUrl: nicecontainerreg.azurecr.io
-          registryUsername: ${{ secrets.ACANHTEST01_REGISTRY_USERNAME }}
-          registryPassword: ${{ secrets.ACANHTEST01_REGISTRY_PASSWORD }}
+          registryUrl: nicecontainerregprod.azurecr.io
+          acrname: nicecontainerregprod
           containerAppName: aca-nh-test-01
           resourceGroup: rg-nh-test-01
           imageToBuild: nicecontainerreg.azurecr.io/image-nh-test-01:${{ github.sha }}
