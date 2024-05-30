@@ -34,11 +34,11 @@ jobs:
         with:
           appSourcePath: ${{ github.workspace }} 
           location: westeu
+          acrName: nicecontainerregprod
           containerAppEnvironment: env-nh-prod-01
           containerAppName: aca-nh-prod-01
           resourceGroup: rg-nh-prod-01
           imageToBuild: nicecontainerreg.azurecr.io/image-nh-prod-01:${{ github.sha }}
-          registryUrl: nicecontainerregprod.azurecr.io
           registryUsername: nicecontainerregprod
           registryPassword: ${{ secrets.REGISTERY_PASSWORD }}
 
