@@ -33,7 +33,7 @@ jobs:
         uses: azure/container-apps-deploy-action@v2
         with:
           appSourcePath: ${{ github.workspace }} 
-
+          location: westeu
           acrname: nicecontainerregprod
           containerAppName: aca-nh-test-01
           resourceGroup: rg-nh-test-01
