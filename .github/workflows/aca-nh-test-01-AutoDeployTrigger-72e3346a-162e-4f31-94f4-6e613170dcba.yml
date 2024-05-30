@@ -39,7 +39,6 @@ jobs:
           containerAppName: aca-nh-prod-01
           resourceGroup: rg-nh-prod-01
           imageToBuild: nicecontainerreg.azurecr.io/image-nh-prod-01:${{ github.sha }}
-          _buildArgumentsKey_: |
-            _buildArgumentsValues_
+
 
 
