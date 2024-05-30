@@ -35,6 +35,7 @@ jobs:
           appSourcePath: ${{ github.workspace }} 
           location: westeu
           acrname: nicecontainerregprod
+          containerAppEnvironment: env-nh-prod-01
           containerAppName: aca-nh-test-01
           resourceGroup: rg-nh-test-01
           imageToBuild: nicecontainerreg.azurecr.io/image-nh-test-01:${{ github.sha }}
