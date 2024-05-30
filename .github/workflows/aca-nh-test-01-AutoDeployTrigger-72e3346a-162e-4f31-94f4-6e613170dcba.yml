@@ -39,16 +39,10 @@ jobs:
           containerAppName: aca-nh-prod-01
           resourceGroup: rg-nh-prod-01
           imageToBuild: nicecontainerreg.azurecr.io/image-nh-prod-01:${{ github.sha }}
-          acrPassword: # optional
-          acrPassword: # optional
-    # The base URL of the Container Registry that the runnable application image will be pushed to.
-    registryUrl: nicecontainerregprod.azurecr.io
-    # The username used to authenticate push requests to the provided Container Registry using the "docker login" action.
-    registryUsername: nicecontainerregprod
-    # The password used to authenticate push requests to the provided Container Registry using the "docker login" action.
-    registryPassword: ${{ secrets.REGISTERY_PASSWORD }}
+          registryUrl: nicecontainerregprod.azurecr.io
+          registryUsername: nicecontainerregprod
+          registryPassword: ${{ secrets.REGISTERY_PASSWORD }}
 
-    # 'Azure credentials used by the `azure/login` action to authenticate Azure CLI requests if the user has not previously authenticated in the workflow calling this action.'
     
 
 
