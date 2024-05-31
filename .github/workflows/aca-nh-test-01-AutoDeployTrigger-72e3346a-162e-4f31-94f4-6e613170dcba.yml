@@ -3,12 +3,6 @@ name: Trigger auto deployment for aca-nh-test-01
 # When this action will be executed
 on:
   # Automatically trigger it when detected changes in repo
-  push:
-    branches: 
-      [ master ]
-    paths:
-    - '**'
-    - '.github/workflows/aca-nh-test-01-AutoDeployTrigger-2e6fa5ce-f05c-4c8e-9b90-9c5ef6f66578.yml'
 
   # Allow manual trigger 
   workflow_dispatch:      
