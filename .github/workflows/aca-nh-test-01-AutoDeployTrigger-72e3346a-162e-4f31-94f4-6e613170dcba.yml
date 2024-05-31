@@ -8,7 +8,7 @@ on:
       [ master ]
     paths:
     - '**'
-    - '.github/workflows/aca-nh-test-01-AutoDeployTrigger-72e3346a-162e-4f31-94f4-6e613170dcba.yml'
+    - '.github/workflows/aca-nh-test-01-AutoDeployTrigger-2e6fa5ce-f05c-4c8e-9b90-9c5ef6f66578.yml'
 
   # Allow manual trigger 
   workflow_dispatch:      
@@ -16,34 +16,30 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-#    permissions: 
-#      id-token: write #This is required for requesting the OIDC JWT Token
-#      contents: read #Required when GH token is used to authenticate with private repo
+    permissions: 
+      id-token: write #This is required for requesting the OIDC JWT Token
+      contents: read #Required when GH token is used to authenticate with private repo
 
     steps:
       - name: Checkout to the branch
         uses: actions/checkout@v3
 
-      - name: Log in to Azure
+      - name: Azure Login
         uses: azure/login@v2
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          client-id: ${{ secrets.ACANHtest01_AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.ACANHtest01_AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.ACANHtest01_AZURE_SUBSCRIPTION_ID }}
 
       - name: Build and push container image to registry
         uses: azure/container-apps-deploy-action@v2
         with:
           appSourcePath: ${{ github.workspace }} 
-          location: westeu
-          acrName: nicecontainerregprod
-          containerAppEnvironment: env-nh-prod-01
-          containerAppName: aca-nh-prod-01
-          resourceGroup: rg-nh-prod-01
-          imageToBuild: nicecontainerregprod.azurecr.io/image-nh-prod-01:${{ github.sha }}
-          registryUsername: nicecontainerregprod
-          registryPassword: ${{ secrets.REGISTERY_PASSWORD }}
-          targetport: 80
-
-    
-
+          registryUrl: ca54918ffb00acr.azurecr.io
+          registryUsername: ${{ secrets.ACANHtest01_REGISTRY_USERNAME }}
+          registryPassword: ${{ secrets.ACANHtest01_REGISTRY_PASSWORD }}
+          containerAppName: aca-nh-test-01
+          resourceGroup: rg-nh-test-01
+          imageToBuild: ca54918ffb00acr.azurecr.io/aca-nh-test-01:${{ github.sha }}
 
 
