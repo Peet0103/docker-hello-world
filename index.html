@@ -9,9 +9,16 @@
         }
         h1 {
             color: #333;
+            animation: colorchange 1s infinite;
         }
         p {
             font-size: 1.2em;
+        }
+        @keyframes colorchange {
+            0%   {color: red;}
+            25%  {color: yellow;}
+            50%  {color: blue;}
+            100% {color: green;}
         }
     </style>
 </head>
