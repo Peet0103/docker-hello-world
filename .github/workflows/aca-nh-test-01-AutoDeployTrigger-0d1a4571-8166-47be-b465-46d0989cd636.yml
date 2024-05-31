@@ -22,10 +22,10 @@ jobs:
 
     steps:
       - name: Checkout to the branch
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Azure Login
-        uses: azure/login@v1
+        uses: azure/login@v2
         with:
           client-id: ${{ secrets.ACANHTEST01_AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.ACANHTEST01_AZURE_TENANT_ID }}
@@ -40,8 +40,5 @@ jobs:
           registryPassword: ${{ secrets.ACANHTEST01_REGISTRY_PASSWORD }}
           containerAppName: aca-nh-test-01
           resourceGroup: rg-nh-test-01
-          imageToBuild: nicecontainerreg.azurecr.io/aca-nh-test-01:${{ github.sha }}
-          _buildArgumentsKey_: |
-            _buildArgumentsValues_
-
+          imageToBuild: nicecontainerreg.azurecr.io/aca-nh-test-01:${{ github.sha }} 
 
