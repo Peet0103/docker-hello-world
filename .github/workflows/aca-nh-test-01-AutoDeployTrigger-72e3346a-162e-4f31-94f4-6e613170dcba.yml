@@ -41,6 +41,7 @@ jobs:
           imageToBuild: nicecontainerregprod.azurecr.io/image-nh-prod-01:${{ github.sha }}
           registryUsername: nicecontainerregprod
           registryPassword: ${{ secrets.REGISTERY_PASSWORD }}
+          targetport: 80
 
     
 
